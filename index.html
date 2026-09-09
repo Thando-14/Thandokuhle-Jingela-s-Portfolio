@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thandokuhle Jingela | Data Scientist & BI Specialist</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #0284c7;
+            --primary-hover: #0369a1;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --bg-light: #f8fafc;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-cyan: #38bdf8;
+            --border-color: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent-cyan);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        /* Hero Section */
+        #hero {
+            padding: 140px 0 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(2, 132, 199, 0.15);
+            color: var(--accent-cyan);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            background: var(--bg-card);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(51, 65, 85, 0.4);
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .skill-category h4 {
+            font-size: 1rem;
+            color: var(--accent-cyan);
+            margin-bottom: 10px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: var(--text-main);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            transition: transform 0.3s, border-color 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-cyan);
+        }
+
+        .project-tag-top {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--accent-cyan);
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .project-bullets {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .project-bullets li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 18px;
+        }
+
+        .project-bullets li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent-cyan);
+        }
+
+        .tech-stack-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 20px;
+        }
+
+        .tech-pill {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border-color);
+            color: #cbd5e1;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-link {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s;
+        }
+
+        .project-link:hover {
+            color: var(--accent-cyan);
+        }
+
+        /* Timeline */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .timeline-item {
+            background: var(--bg-card);
+            border-left: 3px solid var(--primary);
+            border-radius: 0 8px 8px 0;
+            padding: 20px;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .timeline-role {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .timeline-company {
+            color: var(--accent-cyan);
+            font-weight: 500;
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Contact Box */
+        .contact-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .contact-box h3 {
+            font-size: 1.75rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-muted);
+        }
+
+        .contact-item i {
+            color: var(--accent-cyan);
+        }
+
+        footer {
+            padding: 30px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.2rem; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">Thandokuhle<span>.Data</span></a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container hero-content">
+            <div class="badge">Data Science & BI Portfolio</div>
+            <h1 class="hero-title">Hi, I'm Thandokuhle Jingela</h1>
+            <p class="hero-subtitle">Transforming complex datasets into predictive machine learning solutions, automated data pipelines, and high-impact executive dashboards.</p>
+            <div class="hero-btns">
+                <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-code"></i> View Projects</a>
+                <a href="https://github.com/Thando-14" target="_blank" class="btn btn-outline"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/thandokuhle-jingela-9b8a4a274" target="_blank" class="btn btn-outline"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About & Skills Section -->
+    <section id="about">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <div class="section-header">
+                        <h2 class="section-title">About Me</h2>
+                    </div>
+                    <p style="color: var(--text-muted); margin-bottom: 15px;">
+                        I am a Data Science & Analytics graduate with an Advanced Diploma in Business Intelligence and a Diploma in Business Analysis from Durban University of Technology[cite: 1].
+                    </p>
+                    <p style="color: var(--text-muted);">
+                        My focus lies in building end-to-end data pipelines—ranging from exploratory data analysis and outlier auditing to predictive machine learning (XGBoost, Scikit-Learn), time-series revenue forecasting (Prophet, ARIMA), and interactive Power BI executive reporting[cite: 1].
+                    </p>
+                </div>
+
+                <div id="skills">
+                    <div class="section-header">
+                        <h2 class="section-title">Technical Skills</h2>
+                    </div>
+                    <div class="skills-container">
+                        <div class="skill-category">
+                            <h4>Data Science & ML</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">Scikit-Learn</span>
+                                <span class="skill-tag">XGBoost</span>
+                                <span class="skill-tag">Prophet</span>
+                                <span class="skill-tag">ARIMA</span>
+                                <span class="skill-tag">SHAP</span>
+                                <span class="skill-tag">SMOTE</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Business Intelligence & Data</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">SQL</span>
+                                <span class="skill-tag">Power BI</span>
+                                <span class="skill-tag">DAX</span>
+                                <span class="skill-tag">Power Query</span>
+                                <span class="skill-tag">Excel</span>
+                                <span class="skill-tag">RFM Segmentation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-desc">Practical applications of machine learning, forecasting, and business intelligence.</p>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div>
+                        <div class="project-tag-top">Machine Learning & Optimization</div>
+                        <h3 class="project-title">ShopTR Analytics — Predictive & Prescriptive</h3>
+                        <ul class="project-bullets">
+                            <li>Engineered customer behavioral features and trained XGBoost, Random Forest, and Logistic Regression churn prediction models with SMOTE imbalanced handling[cite: 1].</li>
+                            <li>Built time-series revenue forecasting models using Prophet and ARIMA[cite: 1].</li>
+                            <li>Designed a constrained optimization model to maximize discount allocations without eroding profit margins[cite: 1].</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="tech-stack-pills">
+                            <span class="tech-pill">Python</span>
+                            <span class="tech-pill">XGBoost</span>
+                            <span class="tech-pill">Prophet</span>
+                            <span class="tech-pill">ARIMA</span>
+                            <span class="tech-pill">SHAP</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Thando-14" target="_blank" class="project-link"><i class="fa-brands fa-github"></i> View Repository</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div>
+                        <div class="project-tag-top">Business Intelligence & ETL</div>
+                        <h3 class="project-title">ShopTR Analytics — Descriptive & BI Dashboard</h3>
+                        <ul class="project-bullets">
+                            <li>Audited, cleaned, and transformed raw e-commerce records using IQR outlier detection and duplicate validation[cite: 1].</li>
+                            <li>Created RFM customer segmentations to categorize high-value vs. churn-risk buyers[cite: 1].</li>
+                            <li>Developed an interactive Power BI dashboard featuring executive KPI tracking, dynamic slicers, and geographic trends[cite: 1].</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="tech-stack-pills">
+                            <span class="tech-pill">Power BI</span>
+                            <span class="tech-pill">Power Query</span>
+                            <span class="tech-pill">DAX</span>
+                            <span class="tech-pill">Excel</span>
+                            <span class="tech-pill">SQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Thando-14" target="_blank" class="project-link"><i class="fa-brands fa-github"></i> View Dashboard Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Education Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <div class="section-header">
+                        <h2 class="section-title">Education</h2>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-header">
+                                <div class="timeline-role">Advanced Diploma in ICT: Business Intelligence</div>
+                                <div class="timeline-date">2026</div>
+                            </div>
+                            <div class="timeline-company">Durban University of Technology</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-header">
+                                <div class="timeline-role">Diploma in ICT: Business Analysis</div>
+                                <div class="timeline-date">2023 – 2025</div>
+                            </div>
+                            <div class="timeline-company">Durban University of Technology</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="section-header">
+                        <h2 class="section-title">Experience</h2>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-header">
+                                <div class="timeline-role">Eyewear Consultant</div>
+                                <div class="timeline-date">Oct 2025 – Present</div>
+                            </div>
+                            <div class="timeline-company">Specsavers</div>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">
+                                Managed sales transactions, maintained POS product/customer databases, analyzed vision profiles, and resolved technical client queries under daily sales targets[cite: 1].
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-box">
+                <h3>Let's Work Together</h3>
+                <p style="color: var(--text-muted);">I am actively seeking opportunities in Data Science, Business Intelligence, and Data Analytics.</p>
+                <div class="contact-info">
+                    <div class="contact-item"><i class="fa-solid fa-envelope"></i> thandokuhlejingela@gmail.com</div>
+                    <div class="contact-item"><i class="fa-solid fa-phone"></i> 068 284 5690</div>
+                    <div class="contact-item"><i class="fa-solid fa-location-dot"></i> Durban, South Africa</div>
+                </div>
+                <a href="mailto:thandokuhlejingela@gmail.com" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Send Email</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Thandokuhle Jingela. Built for Data Science & Business Intelligence Portfolio.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
